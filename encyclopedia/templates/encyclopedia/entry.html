@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {% if exist %}
+        {{ entry_title }}
+    {% else %}
+    Please try again
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    {{ entry|safe }}
+    {% if exist %}
+    <input type="button" value="Edit the page" onclick="location.href='/wiki/{{ entry_title }}/edit'" />
+    {% else %}
+    <h6>No such page, please create a new page!</h6>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create a New Entry Page
+{% endblock %}
+
+{% block body %}
+    {% if not check %}
+            <h6 style="color:red">&#183 "{{title}}" Already existed, please create a new one or edit it instead.</h6>
+    {% endif %}
+
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <h4>Create new page: </h4>
+        <h6>Title: </h6> {{form.entry_title}}
+        <h6>Content: </h6>    {{form.entry_content}}
+        <br>
+        <input type="submit">
+    </form>
+
+{% endblock %}
+
