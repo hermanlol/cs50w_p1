@@ -32,11 +32,13 @@ def entry(request, entry):
         entry_page = util.get_entry(entry)
         return render(request, "encyclopedia/entry.html",{
             "entry":md.convert(entry_page),
-            "entry_title":entry
+            "entry_title":entry,
+            "exist": True
         })
     else:
         return render(request, "encyclopedia/entry.html",{
-            "entry_title":entry
+            "entry_title":entry,
+            "exist": False
         })
 
 
